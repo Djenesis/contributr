@@ -1,0 +1,16 @@
+language: python
+
+python:
+    - "3.3"
+    - "3.4"
+
+env:
+    - DJANGO_VERSION=1.8
+
+install:
+    - python3 -m pip install -q Django==$DJANGO_VERSION
+    - python3 -m pip install pytest
+    - python3 -m pip install pytest-django
+
+script:
+    - python3 -m pytest
