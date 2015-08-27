@@ -11,6 +11,10 @@ install:
     - python3 -m pip install -q Django==$DJANGO_VERSION
     - python3 -m pip install pytest
     - python3 -m pip install pytest-django
+    - python3 -m pip install codecov
 
 script:
     - python3 -m pytest
+
+after_success:
+    - python3 -m codecov
