@@ -14,7 +14,7 @@ install:
     - python3 -m pip install codecov
 
 script:
-    - python3 -m pytest
+    - cd contributr && python3 -m pytest
 
 after_success:
-    - cd contributr && python3 -m pytest
+    - python3 -m pytest
