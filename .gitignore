@@ -56,5 +56,5 @@ docs/_build/
 # PyBuilder
 target/
 
-# Ignore db files
+# Add db file extensions here
 *.sqlite3
