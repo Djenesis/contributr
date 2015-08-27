@@ -17,4 +17,4 @@ script:
     - cd contributr && python3 -m pytest
 
 after_success:
-    - python3 -m pytest
+    - python3 -m codecov
