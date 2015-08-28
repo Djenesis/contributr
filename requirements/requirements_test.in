@@ -1,0 +1,7 @@
+# Djenesis/contributr
+# dependencies for testing
+# keep the list sorted A-Z
+
+codecov
+Django
+pytest-django

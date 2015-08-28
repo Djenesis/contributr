@@ -1,20 +1,45 @@
-language: python
+# Djenesis/contributr
+# travis-ci build file
 
+
+# python3
+language: python
 python:
     - "3.3"
     - "3.4"
 
+# cache pip packages for faster installs
+cache:
+    directories:
+        - $HOME/.pip-cache/
+
+# set environmental variables for project
 env:
-    - DJANGO_VERSION=1.8
+    # django
+    - DJANGO_VERSION=1.8 DJANGO_SETTINGS_MODULE="contributr/settings"
 
+# install dependencies and any other requirements before running tests
 install:
-    - python3 -m pip install -q Django==$DJANGO_VERSION
-    - python3 -m pip install pytest
-    - python3 -m pip install pytest-django
-    - python3 -m pip install codecov
+    # install dependencies for testing
+    - python3 -m pip install -r requirements/requirements_test.txt
 
+# things to do before running tests
+before-script:
+    # apply migrations
+    - python3 manage.py migrate
+
+# run the test scripts
 script:
+    # use pytest to run tests
     - cd contributr && python3 -m pytest
 
+# things to do if tests successfully halt
 after_success:
+    # send a signal for code coverage
     - python3 -m codecov
+
+# notifications about test builds
+notifications:
+    slack: djenesis:pfQMEIxnzqPmfgvLLhkEsd1B
+    on_sucess: always
+    on_failure: always
