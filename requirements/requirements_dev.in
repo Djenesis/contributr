@@ -1,0 +1,7 @@
+# Djenesis/contributr
+# dependencies for development
+# keep the list sorted A-Z
+
+Django
+pip-tools
+pytest-django
