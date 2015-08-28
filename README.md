@@ -1,6 +1,5 @@
 # contributr
 
-[![Build Status](https://travis-ci.org/Djenesis/contributr.svg)](https://travis-ci.org/Djenesis/contributr)
 [![Build Status](https://travis-ci.org/Djenesis/contributr.svg?branch=master)](https://travis-ci.org/Djenesis/contributr)
 [![codecov.io](http://codecov.io/github/Djenesis/contributr/coverage.svg?branch=master)](http://codecov.io/github/Djenesis/contributr?branch=master)
 

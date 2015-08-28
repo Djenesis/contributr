@@ -5,3 +5,4 @@
 Django
 pip-tools
 pytest-django
+coverage
