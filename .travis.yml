@@ -34,8 +34,13 @@ before-script:
 
 # run the test scripts
 script:
+    - cd contributr
     # use pytest to run tests
-    - cd contributr && python3 -m pytest
+    - python3 -m pytest
+    # use coverage for code coverage
+    - coverage run --source='.' ./manage.py test contributr
+    # generate report
+    - coverage report
 
 # things to do if tests successfully halt
 after_success:
