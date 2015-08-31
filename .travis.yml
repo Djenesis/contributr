@@ -18,9 +18,6 @@ env:
   matrix:
     # django
     - DJANGO_VERSION=1.8 DJANGO_SETTINGS_MODULE="contributr.settings"
-  global:
-    # Note: This key only used for development and testing.
-    - SECRET_KEY="s#9i93akev%vr99xd^zcalfvt*ru6*q)c+anowu($9ba*&-)8y"
 
 # install dependencies and any other requirements before running tests
 install:
