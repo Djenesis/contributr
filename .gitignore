@@ -58,3 +58,8 @@ target/
 
 # Add db file extensions here
 *.sqlite3
+
+# Mac OS X files
+.DS_Store
+.AppleDouble
+.LSOverride
