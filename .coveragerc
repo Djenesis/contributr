@@ -1,0 +1,25 @@
+[run]
+branch = True
+source = contributr
+
+omit =
+    /*/migration*
+    /*/tests*
+    contributr/settings/*
+    settings.py
+    contributr/wsgi*
+    contributr/urls*
+    /*/admin.py
+    /*/settings
+    /*/__init__.py
+    /*/__*
+    /manage.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise NotImplementedError
+    if __name__ == .__main__.:
+
+ignore_errors = True
