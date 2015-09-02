@@ -3,5 +3,7 @@
 # keep the list sorted A-Z
 
 codecov
+coverage
+coveralls
 Django
 pytest-django

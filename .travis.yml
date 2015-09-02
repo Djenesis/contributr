@@ -43,6 +43,7 @@ script:
 after_success:
     # send a signal for code coverage
     - codecov
+    - coveralls
 
 # notifications about test builds
 notifications:
