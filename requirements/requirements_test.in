@@ -2,8 +2,6 @@
 # dependencies for testing
 # keep the list sorted A-Z
 
-codecov
 coverage
-coveralls
 Django
 pytest-django

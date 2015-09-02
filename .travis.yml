@@ -22,7 +22,8 @@ env:
 # install dependencies and any other requirements before running tests
 install:
     # install dependencies for testing
-    - python3 -m pip install -r requirements/requirements_test.txt
+    - pip install -r requirements/requirements_test.txt
+    - pip install coveralls
 
 # things to do before running tests
 before-script:
@@ -42,7 +43,6 @@ script:
 # things to do if tests successfully halt
 after_success:
     # send a signal for code coverage
-    - codecov
     - coveralls
 
 # notifications about test builds
