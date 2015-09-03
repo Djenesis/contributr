@@ -4,4 +4,11 @@
 #
 #    pip-compile requirements_prod.in
 #
+dj-database-url==0.3.0
+dj-static==0.0.6
 django==1.8.4
+gunicorn==19.3.0
+psycopg2==2.6.1
+pystache==0.5.4           # via static
+static3==0.6.1            # via dj-static
+static==1.1.1
