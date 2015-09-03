@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Djenesis/contributr.svg?branch=master)](https://travis-ci.org/Djenesis/contributr)
 [![Coverage Status](https://coveralls.io/repos/Djenesis/contributr/badge.svg?branch=master&service=github)](https://coveralls.io/github/Djenesis/contributr?branch=master)
+[![Requirements Status](https://requires.io/github/Djenesis/contributr/requirements.svg?branch=master)](https://requires.io/github/Djenesis/contributr/requirements/?branch=master)
 
 An online tool for programmers to find projects they can contribute to and project maintainers to find contributors. 
 
