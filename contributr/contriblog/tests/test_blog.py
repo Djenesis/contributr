@@ -1,6 +1,7 @@
 import pytest
 
 from django.core.urlresolvers import reverse
+from contriblog.models import Post
 
 @pytest.mark.django_db
 def test_call_blog(client):
@@ -24,3 +25,12 @@ def test_call_blog_subpage(client):
     """
     response = client.get(reverse("blog:index") + "december")
     assert response.status_code == 404
+
+@pytest.mark.django_db
+def test_string_representation(client):
+    """
+    Asserts wether the blog post string representation (__str__) is equal 
+    to the blog title.
+    """
+    post = Post(title="Test title blog")
+    assert str(post) == "Test title blog"
