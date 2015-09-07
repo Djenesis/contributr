@@ -1,62 +1,52 @@
 # Djenesis/contributr
 # travis-ci build file
 
+
 # python3
 language: python
 python:
-- '3.3'
-- '3.4'
+    - "3.3"
+    - "3.4"
 
 # cache pip packages for faster installs
 cache:
-  directories:
-  - $HOME/.pip-cache/
+    directories:
+        - $HOME/.pip-cache/
 
 # set environmental variables for project
 env:
   matrix:
-  # django
-  - DJANGO_VERSION=1.8 DJANGO_SETTINGS_MODULE="contributr.settings.travis"
+    # django
+    - DJANGO_VERSION=1.8 DJANGO_SETTINGS_MODULE="contributr.settings.travis"
 
 # install dependencies and any other requirements before running tests
 install:
-# install dependencies for testing
-- pip install -r requirements/requirements_test.txt
-- pip install coveralls
+    # install dependencies for testing
+    - pip install -r requirements/requirements_test.txt
+    - pip install coveralls
 
 # things to do before running tests
 before-script:
-# apply migrations
-- python3 manage.py migrate
+    # apply migrations
+    - python3 manage.py migrate
 
 # run the test scripts
 script:
-- cd contributr
-# use pytest to run tests
-- python3 -m pytest
-# use coverage for code coverage
-- coverage run --source='.' ./manage.py test contributr
-# generate report
-- coverage report
+    - cd contributr
+    # use pytest to run tests
+    - python3 -m pytest
+    # use coverage for code coverage
+    - coverage run --source='.' ./manage.py test contributr
+    # generate report
+    - coverage report
 
 # things to do if tests successfully halt
 after_success:
-# send a signal for code coverage
-- coveralls
+    # send a signal for code coverage
+    - coveralls
 
 # notifications about test builds
 notifications:
-  # slack notifications
-  slack: djenesis:pfQMEIxnzqPmfgvLLhkEsd1B
-  on_sucess: always
-  on_failure: always
-
-# automatic deployment
-deploy:
-  # heroku deployment
-  provider: heroku
-  # app name that is to be deployed
-  app: contributr
-  # encrypted api key
-  api_key:
-    secure: Xsa9nBexogNIoKt9RBTYf3wF7JtmRCzslfQTAyK3gMblrsN6A08/PClpbNn9DTmI7IVj200cwuG0ZDBmj844I+YwUarrw+UAWDoA4Wb24bJ4jYnHimiKyJLCf1dK12ntDoDBwF+RNZmriHEuuDz0qvkJ0kIIAGhhifUmQH3tj9bA453h16PFmdxLvtSG6+ZsYQJEiHE9rZe6uAXAVoXWVJX941jwotCC68PwNdZOyMmMgODzYFLOvHnMcfNPROMVMq8So6r8on2QlrXeGZBZ2aN+n3lHoJhYxQTIBbJYqM67IbCNAgK3PB3K+8UdMZZ7ZipA57Ty6KZzIx7e5anQMZn7ejwVjjND3XzEV/utbauMInZgKE13RBHLWv8KnuAn6Rjr6Gu5BO1umnx27Ra67bmTcWfurnao1VWq/rHu5MhTCSw/C8r9t/vEOzaEP44nek379lVy6J3QAYAR9FZOjjV3lBQ50t7W7vXX7MLqUNjAucvPvWsNAnFoa6EWBq0P7rKMI6H/wyh/HR1/ZFbjqeOHWE/ZkB5m2EsXfavUvSUo4AAAyKMv8CHFHkwLv3ol6dfFgL4Bjdc09UrPe4la7yp9wxvi4duVQUoxbZ5piDKnqjlxI+elUKRfz1JYvXJ2JqIlPpeV361oKRBGZ/000t/wK5cdbj7zfyjYlJ7O+Zk=
+    slack: djenesis:pfQMEIxnzqPmfgvLLhkEsd1B
+    on_sucess: always
+    on_failure: always
