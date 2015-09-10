@@ -1,0 +1,17 @@
+<html>
+<head><title>Contriblog</title></head>
+<body>
+
+<h1>Contributr blog</h1>
+{% for object in object_list %}
+  <h3>{{ object.title }}</h3> 
+  <p>Created: {{object.created_date }}</p>
+  <p>Last edited: {{ object.edited_date|date }}</p>
+  <p>Author: {{ object.author }}</p>
+  <p>{{ object.body }}</p>
+  <p><a href=" {% url "blog:detail" slug=object.slug %} ">Permalink</a></p>
+  <hr>
+{% endfor %}
+
+</body>
+</html>

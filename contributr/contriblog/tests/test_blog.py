@@ -1,7 +1,9 @@
 import pytest
 
 from django.core.urlresolvers import reverse
+from django.contrib.auth import get_user_model
 from contriblog.models import Post
+
 
 @pytest.mark.django_db
 def test_call_blog(client):
@@ -26,11 +28,29 @@ def test_call_blog_subpage(client):
     response = client.get(reverse("blog:index") + "december")
     assert response.status_code == 404
 
+
 @pytest.mark.django_db
-def test_string_representation(client):
+def test_blog_model():
     """
-    Asserts wether the blog post string representation (__str__) is equal 
+    Create a user and a blog post with publish set to false.
+    Then assert that number of blog posts equals 1.
+    """
+    user = get_user_model().objects.create(username="bloghero")
+    post = Post(title="Test title blog", author=user, body="Blogging here!", publish=False)
+    post.save()
+    assert Post.objects.all().count() == 1
+
+    """
+    Assert that the custom queryset displays posts that has publish 
+    set to true.
+    """
+    assert Post.objects.published().count() == 0
+    post.publish = True
+    post.save()
+    assert Post.objects.published().count() == 1
+
+    """
+    Asserts wether the post string representation (__str__) is equal 
     to the blog title.
     """
-    post = Post(title="Test title blog")
     assert str(post) == "Test title blog"
