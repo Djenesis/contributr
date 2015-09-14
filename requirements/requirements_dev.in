@@ -6,3 +6,4 @@ Django
 pip-tools
 pytest-django
 coverage
+django-markdown-deux

@@ -5,3 +5,4 @@
 coverage
 Django
 pytest-django
+django-markdown-deux
