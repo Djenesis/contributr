@@ -1,18 +1,20 @@
+{% extends 'base.html' %}
 {% load markdown_deux_tags %}
-<html>
-<head><title>Contriblog</title></head>
-<body>
 
-<h1>Contributr blog</h1>
-{% for object in object_list %}
-  <h3>{{ object.title }}</h3> 
-  <p>Created: {{ object.created_date }}</p>
-  <p>Last edited: {{ object.edited_date|date }}</p>
-  <p>Author: {{ object.author }}</p>
-  <p>{{ object.body|markdown }}</p>
-  <p><a href="{% url "blog:detail" slug=object.slug %}">Permalink</a></p>
-  <hr>
+{% block head_title %}Contributr blog{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-10">
+    <div class="page-header">
+      <h1>Contributr blog</h1>
+    </div>
+  {% for object in object_list %}
+    <h3><a href="{% url "blog:detail" slug=object.slug %}">{{ object.title }}</a></h3>
+    <p class="text-muted">created on {{ object.created_date|date }}, by {{ object.author }}</p>
+
+    <p>{{ object.body|markdown }}</p>
+  </div>
+</div>
 {% endfor %}
-
-</body>
-</html>
+{% endblock %}

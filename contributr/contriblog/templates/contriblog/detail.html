@@ -1,14 +1,16 @@
+{% extends 'base.html' %}
 {% load markdown_deux_tags %}
-<html>
-<head><title>Contriblog</title></head>
-<body>
 
-<h1>Contributr blog</h1>
-  <h3>{{ object.title }}</h3> 
-  <p>Created: {{ object.created_date|date }}</p>
-  <p>Last edited: {{ object.edited_date|date }}</p>
-  <p>Author: {{ object.author }}</p>
-  <p>{{ object.body|markdown }}</p>
+{% block head_title %}Contributr blog{% endblock %}
 
-</body>
-</html>
+{% block content %}
+<div class="row">
+  <div class="col-md-10">
+    <div class="page-header">
+      <h1>{{ object.title }}</h1>
+    </div>
+    <p class="text-muted">created on {{ object.created_date|date }}, by {{ object.author }}</p>
+    <p>{{ object.body|markdown }}</p>
+  </div>
+</div>
+{% endblock %}
