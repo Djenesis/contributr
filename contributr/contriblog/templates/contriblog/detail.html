@@ -1,0 +1,14 @@
+{% load markdown_deux_tags %}
+<html>
+<head><title>Contriblog</title></head>
+<body>
+
+<h1>Contributr blog</h1>
+  <h3>{{ object.title }}</h3> 
+  <p>Created: {{ object.created_date|date }}</p>
+  <p>Last edited: {{ object.edited_date|date }}</p>
+  <p>Author: {{ object.author }}</p>
+  <p>{{ object.body|markdown }}</p>
+
+</body>
+</html>

@@ -20,4 +20,5 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='contributr/index.html'), name="home"),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^blog/', include("contriblog.urls", namespace="blog"))
 ]
