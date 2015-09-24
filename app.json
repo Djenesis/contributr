@@ -1,0 +1,22 @@
+{
+    "name": "Djenesis contributr",
+    "description": "Find projects to contribute to",
+    "repository": "https://github.com/Djenesis/contributr",
+    "keywords": [
+        "django",
+        "python"
+    ],
+    "addons": [
+        "heroku-postgresql:hobby-dev"
+    ],
+    "env": {
+        "SECRET_KEY": {
+            "description": "A secret key for the project.",
+            "generator": "secret"
+        },
+        "DJANGO_SETTINGS_MODULE": {
+            "description": "What settings to use (default is contributr.settings.production).",
+            "value": "contributr.settings.production"
+        }
+    }
+}

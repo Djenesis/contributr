@@ -43,3 +43,7 @@ Sure! In fact, the more tests you run, the better chance you have at catching bu
 
 ## More stuff
 You can check the project issues and wiki for more informative stuff.
+
+## Deploy to Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
