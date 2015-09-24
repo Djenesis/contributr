@@ -9,8 +9,16 @@
     <div class="page-header">
       <h1>{{ object.title }}</h1>
     </div>
-    <p class="text-muted">created on {{ object.created_date|date }}, by {{ object.author }}</p>
+
+    <p class="text-muted">
+        created on {{ object.created_date|date }}, by {{ object.author }} | Tagged under
+        {% for tag in object.tags.all %}
+            <a href="{% url "blog:tag_detail" tag=tag.slug %}">{{ tag.slug }}</a>{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    </p>
+
     <p>{{ object.body|markdown }}</p>
+
   </div>
 </div>
 {% endblock %}

@@ -2,6 +2,12 @@ from django.db import models
 
 from django.core.urlresolvers import reverse
 
+# Tag class
+class Tag(models.Model):
+    slug = models.SlugField(max_length=200, unique=True)
+
+    def __str__(self):
+        return self.slug
 
 # Custom queryset manager that only displays posts that have publish set to true.
 class PostQuerySet(models.QuerySet):
@@ -18,6 +24,7 @@ class Post(models.Model):
     edited_date = models.DateTimeField(auto_now=True)
     publish = models.BooleanField(default=False)
     slug = models.SlugField(max_length=200, unique=True)
+    tags = models.ManyToManyField(Tag)
 
     objects = PostQuerySet.as_manager()
 

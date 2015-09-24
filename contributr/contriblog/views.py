@@ -13,3 +13,9 @@ class BlogIndex(generic.ListView):
 class BlogDetail(generic.DetailView):
     model = models.Post
     template_name = "contriblog/detail.html"
+
+# Generic view that lists every post with selected tag.
+class TagDetail(generic.DetailView):
+    model = models.Tag
+    template_name = "contriblog/tag.html"
+    slug_url_kwarg = "tag"
