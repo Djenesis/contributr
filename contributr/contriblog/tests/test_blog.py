@@ -17,6 +17,7 @@ def test_call_blog(client):
     response = client.get(reverse("blog:index"))
     assert response.status_code == 200
 
+
 @pytest.mark.django_db
 def test_call_blog_subpage(client):
     """
@@ -36,12 +37,13 @@ def test_blog_model():
     Then assert that number of blog posts equals 1.
     """
     user = get_user_model().objects.create(username="bloghero")
-    post = Post(title="Test title blog", author=user, body="Blogging here!", publish=False)
+    post = Post(title="Test title blog", author=user,
+                body="Blogging here!", publish=False)
     post.save()
     assert Post.objects.all().count() == 1
 
     """
-    Assert that the custom queryset displays posts that has publish 
+    Assert that the custom queryset displays posts that has publish
     set to true.
     """
     assert Post.objects.published().count() == 0
@@ -50,7 +52,7 @@ def test_blog_model():
     assert Post.objects.published().count() == 1
 
     """
-    Asserts wether the post string representation (__str__) is equal 
+    Asserts wether the post string representation (__str__) is equal
     to the blog title.
     """
     assert str(post) == "Test title blog"

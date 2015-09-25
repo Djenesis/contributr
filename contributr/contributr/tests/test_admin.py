@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.mark.django_db
 def test_welcome_django(admin_client):
     """
@@ -11,4 +12,3 @@ def test_welcome_django(admin_client):
     """
     response = admin_client.get("http://localhost:8000/admin/")
     assert response.status_code == 200
-
