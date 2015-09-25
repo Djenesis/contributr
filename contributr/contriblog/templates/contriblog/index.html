@@ -11,7 +11,13 @@
     </div>
   {% for object in object_list %}
     <h3><a href="{% url "blog:detail" slug=object.slug %}">{{ object.title }}</a></h3>
-    <p class="text-muted">created on {{ object.created_date|date }}, by {{ object.author }}</p>
+    
+    <p class="text-muted">
+        created on {{ object.created_date|date }}, by {{ object.author }} | Tagged under
+        {% for tag in object.tags.all %}
+            <a href="{% url "blog:tag_detail" tag=tag.slug %}">{{ tag.slug }}</a>{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    </p>
 
     <p>{{ object.body|markdown }}</p>
   </div>
