@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-10">
+    <h1>User profile</h1>
+    {% if request.user.is_authenticated %}
+      {% for account in user.socialaccount_set.all %}
+        <p><img width="50" height="50" src="{{ account.get_avatar_url }}" /></p>
+        <p>Username: {{ account.extra_data.login }}</p>
+        <p>UID: <a href="{{ account.extra_data.link }}">{{ account.uid }}</a></p>
+        <p>Name: {{ account.extra_data.name }}</p>
+        <p>Github url: {{ account.extra_data.html_url }}
+          <p>Location: {{ account.extra_data.location }}</p>
+          <p>Number of public repos: {{ account.extra_data.public_repos }}</p>
+          <p>Number of followers: {{ account.extra_data.followers }}</p>
+        {% endfor %}
+      </div>
+      
+      <div class="col-md-2">
+        <a href="{% url 'account_logout' %}" class="btn btn-default btn-default"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
+      </div>
+    {% else %}
+      <p>You are not logged in.</p>
+    {% endif %}
+  </div>
+{% endblock %}
