@@ -43,6 +43,15 @@
             <li><a href="{%url 'blog:index' %}">Blog</a></li>
             <li><a href="https://github.com/Djenesis/contributr">GitHub</a></li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                {% if request.user.is_authenticated %}
+                <a href="/accounts/profile/"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                {% else %}
+                <a href="/accounts/github/login/?process=login"><span class="glyphicon glyphicon-log-in"></span> Log in with GitHub</a>
+                {% endif %}
+            </li>
+          </ul>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>

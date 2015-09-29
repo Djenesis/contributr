@@ -21,5 +21,10 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(
         template_name='contributr/index.html'), name="home"),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^blog/', include("contriblog.urls", namespace="blog"))
+    url(r'^blog/', include("contriblog.urls", namespace="blog")),
+
+    # django-allauth urls.
+    url(r'^accounts/', include('allauth.urls')),
+    url(r'^accounts/profile/', TemplateView.as_view(
+        template_name='contributr/profile.html'), name="profile"),
 ]

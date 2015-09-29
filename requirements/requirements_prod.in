@@ -8,3 +8,4 @@ gunicorn
 psycopg2
 static
 django-markdown-deux
+django-allauth

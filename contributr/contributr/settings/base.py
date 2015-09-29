@@ -39,8 +39,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Third party applications
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
     'markdown_deux',
 
     # Project applications
@@ -106,3 +111,14 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin.
+    'django.contrib.auth.backends.ModelBackend',
+
+    # django-allauth specific authentication methods, such as login by e-mail.
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+# Site ID. This is required by django-allauth
+SITE_ID = 1

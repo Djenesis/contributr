@@ -4,13 +4,19 @@
 #
 #    pip-compile requirements_prod.in
 #
+defusedxml==0.4.1         # via python3-openid
 dj-database-url==0.3.0
 dj-static==0.0.6
+django-allauth==0.23.0
 django-markdown-deux==1.0.5
 django==1.8.4
 gunicorn==19.3.0
 markdown2==2.3.0          # via django-markdown-deux
+oauthlib==1.0.3           # via requests-oauthlib
 psycopg2==2.6.1
 pystache==0.5.4           # via static
+python3-openid==3.0.7     # via django-allauth
+requests-oauthlib==0.5.0  # via django-allauth
+requests==2.7.0           # via django-allauth, requests-oauthlib
 static3==0.6.1            # via dj-static
 static==1.1.1
