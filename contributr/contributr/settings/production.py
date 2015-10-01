@@ -15,5 +15,9 @@ ALLOWED_HOSTS = ['*']
 
 DEBUG = True
 
+# Simplified static file serving using whitenoise.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 # Allow https protocol to be used with callback urls in allauth
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"

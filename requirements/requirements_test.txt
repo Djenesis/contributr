@@ -13,7 +13,7 @@ markdown2==2.3.0          # via django-markdown-deux
 oauthlib==1.0.3           # via requests-oauthlib
 py==1.4.30                # via pytest
 pytest-django==2.8.0
-pytest==2.8.0             # via pytest-django
+pytest==2.8.1             # via pytest-django
 python3-openid==3.0.7     # via django-allauth
 requests-oauthlib==0.5.0  # via django-allauth
 requests==2.7.0           # via django-allauth, requests-oauthlib
