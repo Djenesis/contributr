@@ -12,10 +12,10 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 if os.environ.get("DJANGO_SETTINGS_MODULE") == "contributr.settings.production":
-    # Cling is a simple way of serving static assets.
-    # http://www.kennethreitz.org/essays/introducing-dj-static
-    from dj_static import Cling
-    application = Cling(get_wsgi_application())
+
+    # Using whitenoise to serve static files in production
+    from whitenoise.django import DjangoWhiteNoise
+    application = DjangoWhiteNoise(get_wsgi_application())
 else:
     application = get_wsgi_application()
 
