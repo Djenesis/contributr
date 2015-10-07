@@ -9,15 +9,15 @@ coverage==4.0
 defusedxml==0.4.1         # via python3-openid
 django-allauth==0.23.0
 django-markdown-deux==1.0.5
-django==1.8.4
+django==1.8.5
 first==2.0.1              # via pip-tools
 markdown2==2.3.0          # via django-markdown-deux
 oauthlib==1.0.3           # via requests-oauthlib
 pip-tools==1.1.4
 py==1.4.30                # via pytest
-pytest-django==2.8.0
+pytest-django==2.9.0
 pytest==2.8.1             # via pytest-django
 python3-openid==3.0.7     # via django-allauth
 requests-oauthlib==0.5.0  # via django-allauth
-requests==2.7.0           # via django-allauth, requests-oauthlib
+requests==2.8.0           # via django-allauth, requests-oauthlib
 six==1.9.0                # via pip-tools

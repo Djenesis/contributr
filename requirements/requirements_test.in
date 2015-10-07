@@ -7,3 +7,4 @@ Django
 pytest-django
 django-markdown-deux
 django-allauth
+pytest-cov

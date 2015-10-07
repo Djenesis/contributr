@@ -14,6 +14,7 @@ class BlogDetail(generic.DetailView):
     model = models.Post
     template_name = "contriblog/detail.html"
 
+
 # Generic view that lists every post with selected tag.
 class TagDetail(generic.DetailView):
     model = models.Tag
